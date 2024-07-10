@@ -1,0 +1,33 @@
+/* ScrollableChat.css */
+
+.message {
+  position: relative; /* Ensure position relative for absolute timestamp positioning */
+  padding: 5px 60px 5px 15px; /* Increased padding to the right to avoid overlap with timestamp */
+  border-radius: 20px;
+  max-width: 75%;
+  background-color: var(
+    --message-bg-color
+  ); /* Use a variable for background color */
+}
+
+.timestamp {
+  font-size: 12px;
+  color: gray;
+  position: absolute; /* Positioning the timestamp */
+  bottom: 5px;
+  right: 10px;
+  white-space: nowrap;
+}
+
+.timestamp:hover::after {
+  content: attr(data-date); /* Show the date on hover using data attribute */
+  position: absolute;
+  bottom: 20px; /* Adjust based on your design */
+  right: 0;
+  background-color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: black;
+}
