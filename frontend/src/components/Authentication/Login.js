@@ -18,6 +18,9 @@ const Login = () => {
 
   const history = useHistory();
   const { setUser } = ChatState();
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   const submitHandler = async () => {
     setLoading(true);
@@ -56,7 +59,9 @@ const Login = () => {
       setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      history.push("/chats"); //navigating to the dashboard of user
+      history.push("/chats");
+      //navigating to the dashboard of user
+      refreshPage();
     } catch (error) {
       toast({
         title: "Error Occured!",
